@@ -1,51 +1,70 @@
-// Dan Lentz// github gist linker
-// Copyright (c) 2009, Chris Moyer (chris@inarow.net) http://inarow.net/
-// MIT (http://www.opensource.org/licenses/mit-license.php) licensed.
-// 
-//
-// ==UserScript==
-// @name           github gist linker
-// @namespace      http://inarow.net/
-// @include        http://github.com/*
-// @description    Version 0.5
-//
-// ==/UserScript==
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>danlentz.github.com by danlentz</title>
 
-(function () {
-  var user = document.location.href.replace(/http:\/\/.*\//, '');
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>danlentz.github.com</h1>
+        <p></p>
 
-  if (user.match(/\//)) return;  // bail on non user pages.
 
-  var dash = document.getElementById('dashboard');
-  if (!dash) return;  
+        <p class="view"><a href="https://github.com/danlentz">View My GitHub Profile</a></p>
 
-  var divs = dash.getElementsByTagName('div');
-  var doss = null;
-  for (var i = 0; i < divs.length; i++) {
-  	if (divs[i].className == 'dossier') {
-	  doss = divs[i];
-	  break;
-	}
-  }
-  if (!doss) return;  
+      </header>
+      <section>
+        <h3>Welcome to GitHub Pages.</h3>
 
-  divs = dash.getElementsByTagName('div');
-  buttons = null;
-  for (var i = 0; i < divs.length; i++) {
-  	if (divs[i].className == 'buttons') {
-	  buttons = divs[i];
-	  break;
-	}
-  }
-  if (!buttons) return;  
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-  // we've bailed if we couldn't find the user info box.  add the button.
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
 
-  var href = 'http://gist.github.com/' + user;
-  
-  var d = document.createElement('div');
-  d.className = "flexipill";
-  d.style.cssText = "float: right";
-  d.innerHTML = '<a href="'+href+'"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="background: transparent url(http://assets2.github.com/images/modules/repos/edit_button.png?c6eb0f11e547c1653efd173d7783e6dcc85d4d07) no-repeat; width:24px"></td><td style="background: transparent url(/images/modules/repos/pills/middle.png) repeat-x scroll 0 0;" class="middle"><span style="color:black;">gists</span></td><td><img src="http://assets3.github.com/images/modules/repos/pills/right.png?c6eb0f11e547c1653efd173d7783e6dcc85d4d07" alt="Right"/></td></tr> </tbody></table> </a>';
-  buttons.appendChild(d);
-})();
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-37992128-2 ");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
